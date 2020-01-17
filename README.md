@@ -11,6 +11,8 @@ https://login-register-w8.herokuapp.com/login
 ## PRODUCTION MODE MODE:
 `npm start`
 
+### Api used for this project: https://reqres.in/api
+
 ## These are some valid emails to log in and register 
 (only register users return an success response for register endpoint in this api)
 
