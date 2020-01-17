@@ -6,7 +6,7 @@ import { login } from './../../../actions/userActions';
 import { validateEmail } from '../../../helpers/validators';
 import './login.scss';
 
-const renderInput = ({ input, placeholder, meta }) => {
+const renderInput = ({ input, placeholder, meta, type }) => {
   const showError = meta.error && meta.touched;
   return (
     <div>
@@ -14,7 +14,7 @@ const renderInput = ({ input, placeholder, meta }) => {
         autoComplete='off'
         {...input}
         className={`form-input ${showError ? 'input-error' : ''}`}
-        type='text'
+        type={type ? type : 'text'}
         placeholder={placeholder}
       />
       <div className={`error ${showError ? '' : 'hidden'}`}>{meta.error}</div>
@@ -48,7 +48,7 @@ const Login = props => {
         </div>
         <form className='login-form' onSubmit={props.handleSubmit(onSubmit)}>
           <Field name='email' component={renderInput} placeholder='Email' />
-          <Field name='password' component={renderInput} placeholder='Password' />
+          <Field name='password' component={renderInput} placeholder='Password' type='password' />
           <div>
             <button className='btn primary'>
               {props.isLoading ? (

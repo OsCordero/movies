@@ -1,16 +1,27 @@
 .register {
   width: 45%;
   margin: 0 auto;
-
   padding: 30px 0px;
+}
+
+@media only screen and (max-width: 868px) {
+  .register {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 568px) {
+  .register {
+    width: 90%;
+  }
 }
 .header {
   text-align: center;
   margin-top: 25px;
 }
 .sign-in {
-  font-size: 12px;
+  font-size: 14px;
   text-align: right;
+  font-family: 'Roboto', sans-serif;
 }
 .register-card {
   background-color: white;
@@ -40,6 +51,13 @@
     display: grid;
     grid-template-columns: 48% 48%;
     column-gap: 4%;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .name {
+      grid-template-columns: auto;
+      row-gap: 15px;
+    }
   }
   .form-input {
     width: 100%;

@@ -178,7 +178,7 @@ const Register = props => {
 
           <div className='agree'>
             <p className='agree-message'>
-              By clicking Sign Up, you agree to our Terms, Data Policy and
+              By clicking Sign Up, you agree to our Terms and Privacy Policy
             </p>
             <Field
               name='agree'

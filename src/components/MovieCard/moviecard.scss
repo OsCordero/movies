@@ -1,0 +1,36 @@
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 3px;
+  .movie-description {
+    margin-top: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  @media only screen and (max-width: 739px) {
+    .movie-description {
+      -webkit-line-clamp: 100;
+    }
+  }
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-content {
+  padding: 20px 16px;
+}
+
+.movie-image {
+  border-radius: 3px 0 0 3px;
+  height: auto;
+}

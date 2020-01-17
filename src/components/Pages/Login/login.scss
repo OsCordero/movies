@@ -1,8 +1,11 @@
 .login {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  width: 39%;
+  display: flex;
+  margin: auto auto;
+  height: 100vh;
+  padding: 250px 0px;
+  justify-content: center;
+  align-items: center;
 }
 .header {
   font-size: xx-large;
@@ -23,7 +26,9 @@
 .header-error {
   text-align: center;
   color: tomato;
-  font-size: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
   max-width: fit-content;
 }
 @media only screen and (max-width: 568px) {
@@ -46,8 +51,9 @@
 }
 
 .sign-up {
-  font-size: 12px;
+  font-size: 13px;
   text-align: right;
+  font-family: 'Roboto', sans-serif;
 }
 
 .btn.primary {

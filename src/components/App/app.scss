@@ -18,6 +18,11 @@ html {
   background-color: white;
 }
 
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 .btn {
   background-color: white;
   border: none;
