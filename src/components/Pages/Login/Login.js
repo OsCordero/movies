@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from './../../../actions/userActions';
 import { validateEmail } from '../../../helpers/validators';
+import applaudoLogo from '../../../assets/applaudo.svg';
 import './login.scss';
 
 const renderInput = ({ input, placeholder, meta, type }) => {
@@ -43,7 +44,7 @@ const Login = props => {
     <div className='login'>
       <div className='login-card'>
         <div className='login-header'>
-          <img alt='logo' src={require('./app.svg')} />
+          <img alt='logo' src={applaudoLogo} />
           <div className='header'>Sign In</div>
         </div>
         <form className='login-form' onSubmit={props.handleSubmit(onSubmit)}>

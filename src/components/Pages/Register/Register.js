@@ -10,6 +10,7 @@ import {
   validateURL,
 } from '../../../helpers/validators';
 import countries from '../../../constants/countries';
+import applaudoLogo from '../../../assets/applaudo.svg';
 import './register.scss';
 
 const renderInput = ({ input, placeholder, meta, type }) => {
@@ -112,7 +113,7 @@ const Register = props => {
     <div className='register'>
       <div className='register-card'>
         <div className='register-header'>
-          <img alt='logo' src={require('./app.svg')} />
+          <img alt='logo' src={applaudoLogo} />
           <div className='header'>Create Account</div>
         </div>
         <form className='register-form' onSubmit={props.handleSubmit(onSubmit)}>

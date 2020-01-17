@@ -5,7 +5,7 @@ const MovieCard = ({ movie }) => {
     <div className='card'>
       <img
         className='movie-image'
-        src={`https://image.tmdb.org/t/p/w185/${movie.poster_path}`}
+        src={`${process.env.REACT_APP_IMAGE_URL}${movie.poster_path}`}
         alt='Avatar'
       />
       <div className='card-content'>

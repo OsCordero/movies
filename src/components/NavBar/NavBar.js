@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './navbar.scss';
+import applaudoLogo from '../../assets/app.svg';
 import { logout } from './../../actions/userActions';
 class NavBar extends React.Component {
   state = { showDropDown: false };
@@ -17,7 +18,7 @@ class NavBar extends React.Component {
       <nav className='nav-bar '>
         <div className='cart-button'>
           <Link to='/' className='item'>
-            <img alt='logo' src={require('./app.svg')} />
+            <img alt='logo' src={applaudoLogo} />
           </Link>
         </div>
 
@@ -51,7 +52,5 @@ class NavBar extends React.Component {
     );
   }
 }
-const mapStateToProps = state => {
-  return {};
-};
-export default connect(mapStateToProps, { logout })(NavBar);
+
+export default connect(null, { logout })(NavBar);
