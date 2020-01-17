@@ -1,0 +1,141 @@
+.nav-bar {
+  display: flex;
+  width: 100%;
+  list-style-type: none;
+  background-color: #333;
+
+  li {
+    display: flex;
+    align-items: center;
+    color: white;
+    height: 100%;
+  }
+}
+
+.nav-bar a {
+  text-decoration: none;
+  display: block;
+  color: white;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.nav-bar-items-list {
+  height: 60px;
+  display: flex;
+  width: 50%;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 30px;
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-menu {
+    background-color: white;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 5px;
+    border-radius: 7px;
+    padding: 10px 15px;
+    row-gap: 10px;
+    position: absolute;
+    box-shadow: 1px 3px 10px rgb(119, 119, 119);
+    top: 60px;
+    right: -10px;
+    .dropdown-avatar {
+      padding: 5px 5px;
+      width: 70px;
+      height: 70px;
+    }
+    .dropdown-items {
+      display: grid;
+      row-gap: 1px;
+      align-items: center;
+      justify-content: center;
+    }
+    .dropdown-item {
+      color: #444;
+      text-align: center;
+      cursor: pointer;
+      padding: 5px 15px;
+      min-width: 100px;
+      border-radius: 5px;
+    }
+    .dropdown-item:hover {
+      color: #444;
+      background-color: #ddd;
+    }
+    .dropdown-divider {
+      border-bottom: 1px solid rgb(197, 197, 197);
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -20%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  animation: fadeInDown 0.3s;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-bar-items-list {
+    width: 70%;
+    margin-left: auto;
+  }
+}
+
+@media only screen and (max-width: 568px) {
+  .nav-bar-items-list {
+    width: 90%;
+    padding: 0 5px;
+    margin-left: 5%;
+
+    font-size: 15px;
+  }
+  .navbar {
+    justify-content: center;
+  }
+  .cart-button {
+    margin-left: 10px;
+  }
+  .nav-bar a {
+    padding: 0;
+  }
+}

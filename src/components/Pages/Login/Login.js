@@ -1,6 +1,9 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { login } from './../../../actions/userActions';
+import { validateEmail } from '../../../helpers/validators';
 import './login.scss';
 
 const renderInput = ({ input, placeholder, meta }) => {
@@ -10,7 +13,7 @@ const renderInput = ({ input, placeholder, meta }) => {
       <input
         autoComplete='off'
         {...input}
-        className={`login-input ${showError ? 'input-error' : ''}`}
+        className={`form-input ${showError ? 'input-error' : ''}`}
         type='text'
         placeholder={placeholder}
       />
@@ -19,33 +22,52 @@ const renderInput = ({ input, placeholder, meta }) => {
   );
 };
 
-const onSubmit = formProps => {
-  console.log(formProps);
-};
-
 const validate = formValues => {
   const errors = {};
-  if (!formValues.username) {
-    errors.username = 'Username field is required';
-  }
-
-  if (!formValues.password) {
-    errors.password = 'Password field is required';
-  }
+  Object.keys(formValues).forEach(key => {
+    const value = formValues[key];
+    errors[key] = !value && key !== 'about' && key !== 'siteUrl' && 'This is a required field';
+    if (key === 'email' && value) {
+      errors[key] = !validateEmail(value) && 'Please insert a valid email';
+    }
+  });
   return errors;
 };
 
 const Login = props => {
+  const onSubmit = ({ email, password }) => {
+    props.login(email, password);
+  };
+
   return (
     <div className='login'>
       <div className='login-card'>
-        <div className='header'>Sign In</div>
+        <div className='login-header'>
+          <img alt='logo' src={require('./app.svg')} />
+          <div className='header'>Sign In</div>
+        </div>
         <form className='login-form' onSubmit={props.handleSubmit(onSubmit)}>
-          <Field name='username' component={renderInput} placeholder='Username' />
+          <Field name='email' component={renderInput} placeholder='Email' />
           <Field name='password' component={renderInput} placeholder='Password' />
-          <button className='btn primary'>Sign In</button>
+          <div>
+            <button className='btn primary'>
+              {props.isLoading ? (
+                <div className='lds-ellipsis'>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              ) : (
+                'Sign In'
+              )}
+            </button>
+            <div className={`header-error ${props.loginError ? '' : 'hidden-none'}`}>
+              Looks like something went wrong, please check your data or try again later
+            </div>
+          </div>
           <div className='sign-up'>
-            <Link to='/register'>Don't have an account? Sign Up</Link>
+            <Link to='/register'>{"Don't have an account? Sign Up"}</Link>
           </div>
         </form>
       </div>
@@ -53,4 +75,16 @@ const Login = props => {
   );
 };
 
-export default reduxForm({ form: 'loginForm', validate })(Login);
+const loginReduxForm = reduxForm({
+  form: 'loginForm',
+  validate,
+  initialValues: {
+    email: '',
+    password: '',
+  },
+})(Login);
+
+const mapStateToProps = state => {
+  return { isLoading: state.user.isLoading, loginError: state.user.userError };
+};
+export default connect(mapStateToProps, { login })(loginReduxForm);

@@ -7,11 +7,10 @@
 }
 body {
   min-height: 100vh;
-  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  // background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 
-  background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
-  background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
-  background-image: linear-gradient(to top, #a7a6cb 0%, #8989ba 52%, #8989ba 100%);
+  // background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
+  background-color: rgb(235, 235, 235);
 }
 
 html {
@@ -35,4 +34,42 @@ html {
 
 .btn.primary {
   background-color: rgb(0, 110, 255);
+}
+
+.form-input {
+  height: 30px;
+  font-size: 20px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid rgb(184, 184, 184);
+  color: rgb(82, 82, 82);
+  padding: 0 20px;
+}
+.form-input.input-error {
+  border-bottom: 1.2px solid tomato;
+  font-size: 20px;
+}
+.error {
+  font-size: 15px;
+  color: tomato;
+}
+.form-input:focus {
+  outline: none;
+  border-bottom: 1.5px solid rgb(98, 133, 247);
+}
+.form-input.input-error:focus {
+  border-bottom: 1.5px solid tomato;
+}
+
+.danger-tag {
+  font-size: 20px;
+}
+
+.hidden {
+  visibility: hidden;
+  min-height: 14px;
+}
+
+.hidden-none {
+  display: none;
 }

@@ -1,0 +1,7 @@
+const moviesConstants = {
+  FETCH_REQUEST: 'MOVIES_FETCH_REQUEST',
+  FETCH_SUCCEEDED: 'MOVIES_FETCH_SUCCEEDED',
+  FETCH_FAILED: 'MOVIES_FETCH_FAILED',
+};
+
+export default moviesConstants;
